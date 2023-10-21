@@ -5,54 +5,29 @@ System.Console.WriteLine(MaxArea(arr));
 
 int MaxArea(int[] height) 
 {
-    // int maxAreaOfWater = 0;
-    // int y = height.Length - 1;
-
-    // for (int x = 0; x <= y; x++)  //x is left and y is right
-    // {
-    //     int width;
-    //     if(x==y && height[x-1]>height[y])
-    //     {
-    //         width = y - x +1;
-    //     }
-    //     else
-    //     {
-    //         width = y - x;
-    //     }
-    //     int currentWater = Math.Min(height[x], height[y]) * width; 
-    //     maxAreaOfWater = Math.Max(maxAreaOfWater, currentWater);
-
-    //     if (height[x] > height[y])
-    //     {
-    //         y--;
-    //     }
-
-    // }
-
-    // return maxAreaOfWater;
-
     int maxAreaOfWater = 0;
-    int x = 0;
     int y = height.Length - 1;
 
-    while (x < y)
+    for (int x = 0; x < y;)  //x is left and y is right
     {
         int width = y - x;
-        int currentWater = Math.Min(height[x], height[y]) * width;
+        int currentWater = Math.Min(height[x], height[y]) * width; 
         maxAreaOfWater = Math.Max(maxAreaOfWater, currentWater);
-
-        if (height[x] < height[y])
+        if(height[x] < height[y])
         {
-            x++;
+             x++;
         }
         else
         {
-            y--;
+           y --;
         }
+        
     }
 
     return maxAreaOfWater;
+
 }
+
 
 
 
@@ -66,7 +41,7 @@ int MaxArea(int[] height)
 // using System.Text.RegularExpressions;
 
 
-// var inputValue = "0.111.168@1.1";
+// var inputValue = "0.0.0.0.0";
 // var sp = inputValue.Split(".");
 // var check = false;
 // for (int i = 0; i < sp.Length-1; i++)
@@ -74,7 +49,8 @@ int MaxArea(int[] height)
 //     var a = ConvertStringToIntBelow255(sp[i]);
 //     var b = CheckStartsWithLeadingZero(sp[i]);
 //     var c = CheckSpecialCharacters(sp[i]);
-//     if (a && b && c)
+//     var d = CheckLengthIsExactlyFour(sp[i]);
+//     if (a && b && c && d)
 //     {
 //         check = true;
 //     }
@@ -133,4 +109,12 @@ int MaxArea(int[] height)
 //     return false;
 // }
 
+// bool CheckLengthIsExactlyFour(string m)
+// {
+//     if (m.Length == 4)
+//     {
+//         return true;
+//     }
+//     return false;
+// }
 
